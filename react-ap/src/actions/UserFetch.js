@@ -5,6 +5,8 @@ export const fetchUsers = (data) => ({
 });
 
 
+
+//using redux thunk
 export const GetUsers =() => async (dispatch,getState) => {
        var users={};
         await axios.get('http://localhost:8155/api/dCandidate')
