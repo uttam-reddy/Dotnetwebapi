@@ -48,8 +48,8 @@ export default function UserReg() {
     <Form.Group as={Col} controlId="formBasicEmail">
     <Form.Label>Gender</Form.Label>
     <Dropdown>
-  <Dropdown.Toggle  id="dropdown-basic" value={gender}>
-    
+  <Dropdown.Toggle  id="dropdown-basic" value={gender} onChange={setGender}>
+    Select Gender
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
