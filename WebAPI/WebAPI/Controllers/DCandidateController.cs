@@ -13,8 +13,8 @@ namespace WebAPIDonation.Controllers
     [ApiController]
     public class DCandidateController : ControllerBase
     {
-        private readonly DonationDbContext _context;
-        public DCandidateController(DonationDbContext context)
+        private readonly CayzenDbContext _context;
+        public DCandidateController(CayzenDbContext context)
         {
             _context = context;
         }
@@ -66,11 +66,18 @@ namespace WebAPIDonation.Controllers
         [HttpPost]
         public async Task<ActionResult<DCandidate>> PostDCandidate(DCandidate dCandidate)
         {
-            _context.DCandidates.Add(dCandidate);
-            await _context.SaveChangesAsync();
+            var candidates= await _context.DCandidates.ToListAsync();
+            if(candidates.FirstOrDefault(x => x.UserName == dCandidate.UserName) == null)
+            {
+                _context.DCandidates.Add(dCandidate);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetDCandidate", new { id = dCandidate.Id }, dCandidate);
+            }
 
-           
-            return CreatedAtAction("GetDCandidate", new { id = dCandidate.Id },dCandidate);
+
+
+            return BadRequest(new { error ="username already exists"});
+            
         }
 
 

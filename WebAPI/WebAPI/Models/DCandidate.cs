@@ -12,16 +12,24 @@ namespace WebAPI.Models
         [Key]
         public int Id { get; set; }
         [Column(TypeName = "nvarchar(100)")]
-        public string  fullName { get; set; }
-        [Column(TypeName = "nvarchar(16)")]
-        public string mobile { get; set; }
-        [Column(TypeName = "nvarchar(100)")]
-        public string email { get; set; }
-        public int  age { get; set; }
-        [Column(TypeName = "nvarchar(3)")]
-        public string bloodGroup { get; set; }
+        public string  fullName { get; set; } 
+        //comp
 
         [Column(TypeName = "nvarchar(100)")]
-        public string address { get; set; }
+        public string email { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
+        public string password { get; set; }//comp
+
+        [Column(TypeName = "nvarchar(100)")]
+        public string UserName { get; set; } //comp
+        [Column(TypeName = "Date")]
+        public DateTime  dateofBirth { get; set; }
+        [Column(TypeName = "nvarchar(10)")]
+        public string Gender { get; set; }
+
+        public bool Status { get; set; }
+
+
     }
 }

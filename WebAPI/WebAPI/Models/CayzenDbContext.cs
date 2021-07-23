@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Models
 {
-    public class DonationDbContext : DbContext
+    public class CayzenDbContext : DbContext
     {
-        public DonationDbContext(DbContextOptions<DonationDbContext> options) : base(options)
+        public CayzenDbContext(DbContextOptions<CayzenDbContext> options) : base(options)
         {
                  
         }
